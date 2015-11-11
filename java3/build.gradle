@@ -1,7 +1,7 @@
 apply plugin: 'java'
 
 buildscript {
-    println 'Hello from java3 buildscript'
+    println "Hello from $project.name buildscript"
     configurations.each { println "$it.name -> $it.artifacts" }
     println "repositories: $repositories"
 }
@@ -11,7 +11,7 @@ dependencies {
 }
 
 task hello(dependsOn: build) {
-    println 'Hello from java3'
+    println "Hello from $project.name task"
     println "repositories: $repositories"
     configurations.each { println "$it.name -> $it.artifacts" }
 }

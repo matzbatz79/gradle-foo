@@ -1,5 +1,15 @@
 apply plugin: 'groovy'
 
+buildscript {
+    println "Hello from $project.name buildscript"
+    println "repositories: $repositories"
+}
+
 dependencies {
     compile 'org.codehaus.groovy:groovy-all:2.4.5'
+}
+
+task hello(dependsOn: build) {
+    println "Hello from $project.name task"
+    println "repositories: $repositories"
 }
