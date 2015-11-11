@@ -1,13 +1,19 @@
 group = 'org.ehrentreich'
 
 buildscript {
-    println 'Hello from parent buildscript'
+    println "Hello from $project.name buildscript"
 }
 
-subprojects {
-    repositories {
+subprojects.findAll { it.name.startsWith('java') }.each { proj ->
+    proj.repositories {
         mavenLocal()
         mavenCentral()
+    }
+}
+
+subprojects.findAll { it.name.startsWith('groovy') }.each { proj ->
+    proj.repositories {
+        mavenLocal()
         jcenter()
     }
 }
