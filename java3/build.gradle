@@ -1,11 +1,17 @@
 apply plugin: 'java'
 
-repositories {
-    mavenLocal()
-    mavenCentral()
-    jcenter()
+buildscript {
+    println 'Hello from java3 buildscript'
+    configurations.each { println "$it.name -> $it.artifacts" }
+    println "repositories: $repositories"
 }
 
 dependencies {
+    compile 'commons-io:commons-io:2.4'
 }
 
+task hello(dependsOn: build) {
+    println 'Hello from java3'
+    println "repositories: $repositories"
+    configurations.each { println "$it.name -> $it.artifacts" }
+}

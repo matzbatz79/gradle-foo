@@ -3,6 +3,7 @@ include 'groovy2'
 include 'groovy3'
 include 'java1'
 include 'java2'
+include 'java2:subjava1'
 include 'java3'
 
 rootProject.name = 'gradle-foo'

@@ -1,2 +1,13 @@
 group = 'org.ehrentreich'
 
+buildscript {
+    println 'Hello from parent buildscript'
+}
+
+subprojects {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        jcenter()
+    }
+}
