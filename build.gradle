@@ -5,6 +5,13 @@ buildscript {
 }
 
 subprojects.findAll { it.name.startsWith('java') }.each { proj ->
+    ['foo', 'bar', 'baz'].each { name ->
+        def taskName = "buildJava${name.capitalize()}"
+        proj.tasks.create(name: taskName) << {
+            println "hello from $taskName"
+        }
+    }
+
     proj.repositories {
         mavenLocal()
         mavenCentral()
